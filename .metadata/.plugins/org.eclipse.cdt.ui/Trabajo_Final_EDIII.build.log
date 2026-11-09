@@ -1,8 +1,0 @@
-14:41:44 **** Clean-only build of configuration Debug for project Trabajo_Final_EDIII ****
-make -r -j8 clean 
-rm -rf ./src/Trabajo_Final_EDIII.d ./src/Trabajo_Final_EDIII.o ./src/cr_startup_lpc175x_6x.d ./src/cr_startup_lpc175x_6x.o ./src/crp.d ./src/crp.o
-rm -rf Trabajo_Final_EDIII.axf
- 
-
-14:41:44 Build Finished. 0 errors, 0 warnings. (took 421ms)
-

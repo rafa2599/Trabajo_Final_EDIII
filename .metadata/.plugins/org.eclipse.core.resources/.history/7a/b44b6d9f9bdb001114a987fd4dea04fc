@@ -1,7 +1,0 @@
-Drivers/source/lpc17xx_libcfg_default.o \
- Drivers/source/lpc17xx_libcfg_default.d: \
- ../Drivers/source/lpc17xx_libcfg_default.c \
- /home/rafael/Documents/TP_Final_EDIII/CMSISv2p00_LPC17xx/Drivers/include/lpc17xx_libcfg_default.h \
- /home/rafael/Documents/TP_Final_EDIII/CMSISv2p00_LPC17xx/Drivers/include/lpc_types.h
-/home/rafael/Documents/TP_Final_EDIII/CMSISv2p00_LPC17xx/Drivers/include/lpc17xx_libcfg_default.h:
-/home/rafael/Documents/TP_Final_EDIII/CMSISv2p00_LPC17xx/Drivers/include/lpc_types.h:

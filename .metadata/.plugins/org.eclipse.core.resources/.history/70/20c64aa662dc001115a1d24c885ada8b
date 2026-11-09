@@ -1,0 +1,67 @@
+#include "LPC17xx.h"
+#include <lpc17xx_pinsel.h>
+#include <lpc17xx_gpio.h>
+
+//Configurancion de los 5 pines necesarios para la utilizacion de los 5 canales del ADC
+void configPinsAdc(){
+	//Config. channel 0 (P0.23) -> Se va a utilizar para LDR Superior IZQ.
+	PINSEL_CFG_T cfgAdc0 = {
+			.port = PORT_0,
+			.pin = PIN_23,
+			.func = PINSEL_FUNC_01,
+			.mode = PINSEL_TRISTATE,
+			.openDrain = DISABLE
+
+
+	};
+	PINSEL_ConfigPin(&cfgAdc0);
+
+	//Config. channel 0 (P0.24) -> -> Se va a utilizar para LDR Superior DER.
+	PINSEL_CFG_T cfgAdc1 = {
+			.port = PORT_0,
+			.pin = PIN_24,
+			.func = PINSEL_FUNC_01,
+			.mode = PINSEL_TRISTATE,
+			.openDrain = DISABLE
+
+
+	};
+	PINSEL_ConfigPin(&cfgAdc1);
+
+	//Config. channel 0 (P0.25) -> -> Se va a utilizar para LDR Inferior IZQ.
+	PINSEL_CFG_T cfgAdc2 = {
+			.port = PORT_0,
+			.pin = PIN_25,
+			.func = PINSEL_FUNC_01,
+			.mode = PINSEL_TRISTATE,
+			.openDrain = DISABLE
+
+
+	};
+	PINSEL_ConfigPin(&cfgAdc2);
+
+	//Config. channel 0 (P0.26) -> Se va a utilizar para LDR Inferior DER.
+	PINSEL_CFG_T cfgAdc3 = {
+			.port = PORT_0,
+			.pin = PIN_26,
+			.func = PINSEL_FUNC_01,
+			.mode = PINSEL_TRISTATE,
+			.openDrain = DISABLE
+
+
+	};
+	PINSEL_ConfigPin(&cfgAdc3);
+
+	//Config. channel 0 (P0.27) -> Se va a utilizar para sensor de TEMPERATURA (LM35).
+	PINSEL_CFG_T cfgAdc4 = {
+			.port = PORT_0,
+			.pin = PIN_27,
+			.func = PINSEL_FUNC_01,
+			.mode = PINSEL_TRISTATE,
+			.openDrain = DISABLE
+
+
+	};
+	PINSEL_ConfigPin(&cfgAdc4);
+
+}

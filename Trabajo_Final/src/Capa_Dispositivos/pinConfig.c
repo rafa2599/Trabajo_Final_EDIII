@@ -13,7 +13,7 @@
 // 1. CONFIGURACIÓN DE PINES ANALÓGICOS (ADC: LDRs + LM35)
 // -------------------------------------------------------------------------
 
-void configPinsAdc(){
+void configPinsAdc(void){
 	//Config. channel 0 (P0.23) -> Se va a utilizar para LDR Superior IZQ.
 	PINSEL_CFG_T cfgAdc0 = {
 			.port = PORT_ADC_LDR,
@@ -78,7 +78,7 @@ void configPinsAdc(){
 // -------------------------------------------------------------------------
 // 4. CONFIGURACIÓN DE INTERRUPCIÓN EXTERNA (Botón EINT0)
 // -------------------------------------------------------------------------
-void configPinEint0(){
+void configPinEint0(void){
 	PINSEL_CFG_T cfgEint0 = {
 		
 			.port = PORT_EINT_BTN,

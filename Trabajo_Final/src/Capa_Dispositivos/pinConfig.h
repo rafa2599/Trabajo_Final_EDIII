@@ -34,21 +34,21 @@
 #define PIN_ADC_LM35_PIN       PIN_27    // AD0.4
 
 // PWM1 - Servomotores (Azimut y Elevación)
-#define PORT_PWM_SERVO_X       PINSEL_PORT_2
-#define PIN_PWM_SERVO_X_PIN    PINSEL_PIN_0     // PWM1.1
+#define PORT_PWM_SERVO_X       PORT_2
+#define PIN_PWM_SERVO_X_PIN    PIN_0     // PWM1.1
 
-#define PORT_PWM_SERVO_Y       PINSEL_PORT_2
-#define PIN_PWM_SERVO_Y_PIN    PINSEL_PIN_1     // PWM1.2
+#define PORT_PWM_SERVO_Y       PORT_2
+#define PIN_PWM_SERVO_Y_PIN    PIN_1     // PWM1.2
 
 // UART0 - Telemetría USB
-#define PORT_UART_TX       PINSEL_PORT_0
-#define PIN_UART_TX_PIN        PINSEL_PIN_2     // TXD0
+#define PORT_UART_TX       PORT_0
+#define PIN_UART_TX_PIN    PIN_2     // TXD0
 
-#define PORT_UART_RX       PINSEL_PORT_0
-#define PIN_UART_RX_PIN        PINSEL_PIN_3     // RXD0
+#define PORT_UART_RX       PORT_0
+#define PIN_UART_RX_PIN    PIN_3     // RXD0
 
 // Interrupción Externa y GPIO
-#define PORT_EINT_BTN      PORT_2
+#define PORT_EINT_BTN          PORT_2
 #define PIN_EINT_BTN_PIN       PIN_10    // EINT0 (Boton Modo)
 
 /*------------------------------------------------------------------------------
@@ -60,6 +60,7 @@
  *            modos open-drain para todos los perifericos del SEP.
  * @note      USW.2.1.16.1
  ******************************************************************************/
-void PinConfig_Init(void);
+void configPinsAdc(void);
+void configPinEint0(void);
 
 #endif /* PINCONFIG_H_ */

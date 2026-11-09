@@ -1,8 +1,0 @@
-14:28:20 **** Clean-only build of configuration Debug for project CMSIS_CORE_LPC17xx ****
-make -r -j8 clean 
-rm -rf ./src/system_LPC17xx.d ./src/system_LPC17xx.o
-rm -rf libCMSIS_CORE_LPC17xx.a
- 
-
-14:28:21 Build Finished. 0 errors, 0 warnings. (took 455ms)
-

@@ -1,0 +1,13 @@
+#include "LPC17xx.h"
+#include <lpc17xx_pinsel.h>
+#include <lpc17xx_gpio.h>
+
+//Configurancion de los 5 pines necesarios para la utilizacion de los 5 canales del ADC
+void configPinsAdc(){
+	//Config. channel 0 (P0.23)
+	PINSEL_CFG_T cfgAdc0;
+
+	cfgAdc0 = {
+
+	}
+}

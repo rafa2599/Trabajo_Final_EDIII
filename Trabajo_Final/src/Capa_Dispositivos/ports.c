@@ -65,3 +65,7 @@ void configPinsAdc(){
 	PINSEL_ConfigPin(&cfgAdc4);
 
 }
+
+void configPinTimer(){
+
+}

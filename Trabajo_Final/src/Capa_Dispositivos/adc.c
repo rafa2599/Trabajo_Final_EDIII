@@ -17,6 +17,8 @@
 // -------------------------------------------------------------------------
 volatile uint32_t adcValue[4]; // Variable global para almacenar los valores del LDR
 volatile uint32_t adcValueLM35; // Variable global para almacenar el valor del LM35
+volatile int32_t adcTotal;
+volatile int32_t error_x, error_y;
 volatile uint8_t  adcMuestreoCompleto = 0; //
 static uint8_t canalActual = 0; // Variable global para almacenar el canal actual del ADC
 void configAdc(void){
@@ -45,6 +47,25 @@ void configAdc(void){
 	NVIC_EnableIRQ(ADC_IRQn);
     NIVIC_SetPriority(ADC_IRQn, 1); // Configura la prioridad de la interrupción del ADC
 }
+void calc_error(void)
+{
+    adcTotal = 0;
+    for (uint8_t i = 0; i < 4; i++) {
+        adcTotal += adcValue[i];
+    }
+
+    // Protección contra división por cero o penumbra extrema
+    if (adcTotal < S_MINIMO) {
+        error_x = 0;
+        error_y = 0;
+        return;
+    }
+
+    // Formulación normalizada según informe técnico (Rango -1000 a +1000)
+    // adcValue[0] = STL, adcValue[1] = STR, adcValue[2] = SBL, adcValue[3] = SBR
+    error_x = (1000 * ((int32_t)(adcValue[1] + adcValue[3]) - (int32_t)(adcValue[0] + adcValue[2]))) / adcTotal;
+    error_y = (1000 * ((int32_t)(adcValue[0] + adcValue[1]) - (int32_t)(adcValue[2] + adcValue[3]))) / adcTotal;
+}
 void ADC_IRQHandler(void){
 
     if (ADC_ChannelGetStatus(canalActual, ADC_DATA_DONE)) {
@@ -67,10 +88,10 @@ void ADC_IRQHandler(void){
             ADC_StartCmd(ADC_START_CONTINUOUS); // Iniciar conversión inmediata
         } 
         else 
-        {
+        {   calc_error();
             // Fin de la ráfaga de 5 canales: Reconfigurar para el próximo pulso de MAT0.1
             canalActual = 0;
-            adcMuestreoCompleto = 1;
+            adcMuestreoCompleto += 1;
 
             ADC_ChannelEnable(ADC_CHANNEL_0);
             ADC_StartCmd(ADC_START_ON_MAT01); // Aguardar próximo evento del Timer 0

@@ -62,5 +62,7 @@
  ******************************************************************************/
 void configPinsAdc(void);
 void configPinEint0(void);
+void configPinServos(void);
+void configPinUart (void);
 
 #endif /* PINCONFIG_H_ */

@@ -35,10 +35,10 @@
 
 // PWM1 - Servomotores (Azimut y Elevación)
 #define PORT_PWM_SERVO_X       PORT_2
-#define PIN_PWM_SERVO_X_PIN    PIN_0     // PWM1.1
+#define PIN_PWM_SERVO_X    PIN_0     // PWM1.1
 
 #define PORT_PWM_SERVO_Y       PORT_2
-#define PIN_PWM_SERVO_Y_PIN    PIN_1     // PWM1.2
+#define PIN_PWM_SERVO_Y    PIN_1     // PWM1.2
 
 // UART0 - Telemetría USB
 #define PORT_UART_TX       PORT_0

@@ -89,3 +89,22 @@ void configPinEint0(void){
 	};
 	PINSEL_ConfigPin(&cfgEint0);
 }
+void configPinServos(void){
+	PINSEL_CFG_T cfgPwmX = {
+		.port = PORT_PWM_SERVO_X ,
+		.pin = PIN_PWM_SERVO_X,
+		.func = PINSEL_FUNC_01,
+		.mode =PINSEL_TRISTATE,
+		.openDrain = DISABLE
+	};
+	PINSEL_ConfigPin(&cfgPwmX);
+
+		PINSEL_CFG_T cfgPwmY = {
+		.port = PORT_PWM_SERVO_Y ,
+		.pin = PIN_PWM_SERVO_Y,
+		.func = PINSEL_FUNC_01,
+		.mode =PINSEL_TRISTATE,
+		.openDrain = DISABLE
+	};
+	PINSEL_ConfigPin(&cfgPwmY);
+}

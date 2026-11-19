@@ -5,7 +5,7 @@
  * @note      ESW
  ******************************************************************************/
 #ifndef PWM_H_
-#define PMW_H_
+#define PWM_H_
 /*------------------------------------------------------------------------------
  * INCLUDES
  *----------------------------------------------------------------------------*/
@@ -37,4 +37,5 @@ void configPwm(void);
  * @param  anchoPulseY_us Ancho de pulso en µs para el Servo Y (PWM1.2 en P2.1)
  */
 void PWM_ActualizarServos(uint32_t anchoPulseX_us, uint32_t anchoPulseY_us);
+
 #endif /* PWM_H_ */

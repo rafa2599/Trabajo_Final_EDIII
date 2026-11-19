@@ -30,8 +30,8 @@
 #define PIN_ADC_LDR_INF_DER     PIN_26    // AD0.3
 
 // ADC - Sensor de Temperatura LM35
-#define PORT_ADC_LM35          PORT_0
-#define PIN_ADC_LM35_PIN       PIN_27    // AD0.4
+#define PORT_ADC_LM35          PORT_1
+#define PIN_ADC_LM35_PIN       PIN_30    // AD0.4
 
 // PWM1 - Servomotores (Azimut y Elevación)
 #define PORT_PWM_SERVO_X       PORT_2

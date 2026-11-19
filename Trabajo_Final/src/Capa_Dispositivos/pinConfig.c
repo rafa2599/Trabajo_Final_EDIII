@@ -13,81 +13,70 @@
 // 1. CONFIGURACIÓN DE PINES ANALÓGICOS (ADC: LDRs + LM35)
 // -------------------------------------------------------------------------
 
-void configPinsAdc(void){
-	//Config. channel 0 (P0.23) -> Se va a utilizar para LDR Superior IZQ.
-	PINSEL_CFG_T cfgAdc0 = {
-			.port = PORT_ADC_LDR,
-			.pin = PIN_ADC_LDR_SUP_IZQ,
-			.func = PINSEL_FUNC_01,
-			.mode = PINSEL_TRISTATE,
-			.openDrain = DISABLE
+#include "pinConfig.h"
 
+void configPinsAdc(void) {
+    // Channel 0 (P0.23) -> LDR Superior IZQ (FUNC_01 = AD0.0)
+    PINSEL_CFG_T cfgAdc0 = {
+        .port = PORT_ADC_LDR,
+        .pin = PIN_ADC_LDR_SUP_IZQ,
+        .func = PINSEL_FUNC_01,
+        .mode = PINSEL_TRISTATE,
+        .openDrain = DISABLE
+    };
+    PINSEL_ConfigPin(&cfgAdc0);
 
-	};
-	PINSEL_ConfigPin(&cfgAdc0);
+    // Channel 1 (P0.24) -> LDR Superior DER (FUNC_01 = AD0.1)
+    PINSEL_CFG_T cfgAdc1 = {
+        .port = PORT_ADC_LDR,
+        .pin = PIN_ADC_LDR_SUP_DER,
+        .func = PINSEL_FUNC_01,
+        .mode = PINSEL_TRISTATE,
+        .openDrain = DISABLE
+    };
+    PINSEL_ConfigPin(&cfgAdc1);
 
-	//Config. channel 1 (P0.24) -> -> Se va a utilizar para LDR Superior DER.
-	PINSEL_CFG_T cfgAdc1 = {
-			.port = PORT_ADC_LDR,
-			.pin = PIN_ADC_LDR_SUP_DER,
-			.func = PINSEL_FUNC_01,
-			.mode = PINSEL_TRISTATE,
-			.openDrain = DISABLE
+    // Channel 2 (P0.25) -> LDR Inferior IZQ (FUNC_01 = AD0.2)
+    PINSEL_CFG_T cfgAdc2 = {
+        .port = PORT_ADC_LDR,
+        .pin = PIN_ADC_LDR_INF_IZQ,
+        .func = PINSEL_FUNC_01,
+        .mode = PINSEL_TRISTATE,
+        .openDrain = DISABLE
+    };
+    PINSEL_ConfigPin(&cfgAdc2);
 
+    // Channel 3 (P0.26) -> LDR Inferior DER (FUNC_01 = AD0.3)
+    PINSEL_CFG_T cfgAdc3 = {
+        .port = PORT_ADC_LDR,
+        .pin = PIN_ADC_LDR_INF_DER,
+        .func = PINSEL_FUNC_01,
+        .mode = PINSEL_TRISTATE,
+        .openDrain = DISABLE
+    };
+    PINSEL_ConfigPin(&cfgAdc3);
 
-	};
-	PINSEL_ConfigPin(&cfgAdc1);
-
-	//Config. channel 2 (P0.25) -> -> Se va a utilizar para LDR Inferior IZQ.
-	PINSEL_CFG_T cfgAdc2 = {
-			.port = PORT_ADC_LDR,
-			.pin = PIN_ADC_LDR_INF_IZQ,
-			.func = PINSEL_FUNC_01,
-			.mode = PINSEL_TRISTATE,
-			.openDrain = DISABLE
-
-
-	};
-	PINSEL_ConfigPin(&cfgAdc2);
-
-	//Config. channel 3 (P0.26) -> Se va a utilizar para LDR Inferior DER.
-	PINSEL_CFG_T cfgAdc3 = {
-			.port = PORT_ADC_LDR,
-			.pin = PIN_ADC_LDR_INF_DER,
-			.func = PINSEL_FUNC_01,
-			.mode = PINSEL_TRISTATE,
-			.openDrain = DISABLE
-
-
-	};
-	PINSEL_ConfigPin(&cfgAdc3);
-
-	//Config. channel 4 (P0.27) -> Se va a utilizar para sensor de TEMPERATURA (LM35).
-	PINSEL_CFG_T cfgAdc4 = {
-			.port = PORT_ADC_LM35,
-			.pin = PIN_ADC_LM35_PIN,
-			.func = PINSEL_FUNC_01,
-			.mode = PINSEL_TRISTATE,
-			.openDrain = DISABLE
-
-
-	};
-	PINSEL_ConfigPin(&cfgAdc4);
-
+    // Channel 4 (P1.30) -> Sensor LM35 (FUNC_11 = AD0.4)
+    PINSEL_CFG_T cfgAdc4 = {
+        .port = PORT_ADC_LM35,
+        .pin = PIN_ADC_LM35_PIN,
+        .func = PINSEL_FUNC_11,
+        .mode = PINSEL_TRISTATE,
+        .openDrain = DISABLE
+    };
+    PINSEL_ConfigPin(&cfgAdc4);
 }
-// -------------------------------------------------------------------------
-// 4. CONFIGURACIÓN DE INTERRUPCIÓN EXTERNA (Botón EINT0)
-// -------------------------------------------------------------------------
-void configPinEint0(void){
-	PINSEL_CFG_T cfgEint0 = {
-		
-			.port = PORT_EINT_BTN,
-			.pin = PIN_EINT_BTN_PIN,
-			.func = PINSEL_FUNC_01,
-			.mode = PINSEL_TRISTATE,
-			.openDrain = DISABLE
-	};
-	PINSEL_ConfigPin(&cfgEint0);
+
+void configPinEint0(void) {
+    // Pull-up interno activo para evitar estado flotante en P2.10 (ISP)
+    PINSEL_CFG_T cfgEint0 = {
+        .port = PORT_EINT_BTN,
+        .pin = PIN_EINT_BTN_PIN,
+        .func = PINSEL_FUNC_01,
+        .mode = PINSEL_PULLUP,
+        .openDrain = DISABLE
+    };
+    PINSEL_ConfigPin(&cfgEint0);
 }
 void configPinServos(void){
 	PINSEL_CFG_T cfgPwmX = {

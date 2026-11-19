@@ -1,6 +1,7 @@
 /***
  * @file      pwm.h
- * @brief     
+ * @brief     Librerias y definciones necesarias para la configuracion del periferico 
+ *            PWM 
  * @details   
  * @note      ESW
  ******************************************************************************/
@@ -25,10 +26,13 @@
  * PROTOTIPOS DE FUNCIONES
  *----------------------------------------------------------------------------*/
 /**
- * @brief     
- * @details   
+ * @brief     Funciones de configuracion
+ * @details   Funcion que configura el modo de trabajo del periferico PWM donde 
+ *            se determina la base de timepo y la escala . La configuracion de 
+ *            los pines, el modo de trabajo (flanco simple) y el comportamiento del
+ *            periferico cuando hay match 
  *            
- * @note      USW.
+ * @note      
  ******************************************************************************/
 void configPwm(void);
 /**

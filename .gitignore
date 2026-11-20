@@ -1,0 +1,12 @@
+Release/
+Debug/
+/.metadata
+/.mcuxpressoide_packages_support
+/metadata
+/mcuxpressoide_packages_support
+/ZephyrRTOS_TAD_logs
+/FreeRTOS_TAD_logs
+/AzureRTOS_TAD_logs
+/Trabajo_Final LinkServer Debug.launch
+/.cproject
+/.project
